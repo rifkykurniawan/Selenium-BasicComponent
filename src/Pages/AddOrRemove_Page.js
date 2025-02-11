@@ -20,10 +20,7 @@ class AddOrRemove_Page {
         const addElementButton = await this.driver.findElement(this.addElementButton);
         await addElementButton.click();
     }
-    async clickDeleteButton() {
-        const deleteButton = await this.driver.findElement(this.deleteButton);
-        await deleteButton.click();
-    }
+    
     async isDeleteButton1Visible() {
         const deleteButton1 = await this.driver.findElement(this.deleteButton1);
         return await deleteButton1.isDisplayed();
@@ -43,6 +40,26 @@ class AddOrRemove_Page {
     async isDeleteButton5Visible() {
         const deleteButton5 = await this.driver.findElement(this.deleteButton5);
         return await deleteButton5.isDisplayed();
+    }
+    async clickDeleteButton() {
+        const deleteButton1 = await this.driver.findElement(this.deleteButton1);
+        await deleteButton1.click();
+    }
+    async clickDeleteButton2() {
+        const deleteButton2 = await this.driver.findElement(this.deleteButton2);
+        await deleteButton2.click();
+    }
+    async clickDeleteButton3() {
+        const deleteButton3 = await this.driver.findElement(this.deleteButton3);
+        await deleteButton3.click();
+    }
+    async clickDeleteButton4() {
+        const deleteButton4 = await this.driver.findElement(this.deleteButton4);
+        await deleteButton4.click();
+    }
+    async clickDeleteButton5() {
+        const deleteButton5 = await this.driver.findElement(this.deleteButton5);
+        await deleteButton5.click();
     }
 }
 
