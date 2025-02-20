@@ -60,7 +60,8 @@ npm test
 
 ### Run Specific File
 ```bash
-npx mocha tests/TestCases.js
+npx mocha tests/finelame.test.js
+
 ```
 ## Contributing
 
