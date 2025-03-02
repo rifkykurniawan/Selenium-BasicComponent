@@ -3,6 +3,7 @@ const {By} = require('selenium-webdriver');
 class HomePage_Page {
     constructor(driver) {
         this.driver = driver;
+        this.pageTitle = By.xpath('//*[@id="content"]/h1');
         this.addOrRemoveElementsButton = By.xpath('//*[@id="content"]/ul/li[2]/a');
         this.basicAuthButton = By.xpath('//*[@id="content"]/ul/li[3]/a');
         this.brokenImagesButton = By.xpath('//*[@id="content"]/ul/li[4]/a');
@@ -47,6 +48,10 @@ class HomePage_Page {
         this.typosButton = By.xpath('//*[@id="content"]/ul/li[43]/a');
         this.wysiwygEditorButton = By.xpath('//*[@id="content"]/ul/li[44]/a');
     
+    }
+    async getPageTitle() {
+        const pageTitle = await this.driver.findElement(this.pageTitle);
+        return await pageTitle.getText();
     }
 
     async clickAddOrRemoveElementsButton() {

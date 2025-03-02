@@ -10,6 +10,7 @@ let brokenImages_Page;
 before(async function() {
     this.timeout(100000);
     const options = new chrome.Options();
+    options.addArguments('--start-maximized');
     driver = await new Builder()
         .forBrowser('chrome')
         .setChromeOptions(options)
@@ -26,7 +27,7 @@ after(async function() {
 });
 
 describe('Broken Images', function() {
-    it('BRI001 - Verify Broken Images Page', async () => {
+    it('BRI001 - Verify Broken Images Page', async function () {
         await brokenImages_Page.clickBrokenImagesButton();
         const currentUrl = await driver.getCurrentUrl();
         assert.strictEqual(currentUrl, 'https://the-internet.herokuapp.com/broken_images');

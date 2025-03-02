@@ -1,9 +1,6 @@
 const {Builder} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const assert = require('assert');
-const AddOrRemove_Page = require('../src/Pages/AddOrRemove_Page');
-const BasicAuth_Page = require('../src/Pages/BasicAuth_Page');
-const BrokenImages_Page = require('../src/Pages/BrokenImages_Page');
 const ChallengingDom_Page = require('../src/Pages/ChallengingDom_Page');
 const { it, describe, afterEach, after } = require('mocha');
 
@@ -13,6 +10,7 @@ let challengingDom_Page;
 before(async function() {
     this.timeout(100000);
     const options = new chrome.Options();
+    options.addArguments('--start-maximized');
     driver = await new Builder()
         .forBrowser('chrome')
         .setChromeOptions(options)
@@ -29,7 +27,7 @@ after(async function() {
 });
 
 describe('Challenging Dom', function() {
-    it('CD001 - Verify Challenging Dom Page', async () => {
+    it('CD001 - Verify Challenging Dom Page', async function () {
         await challengingDom_Page.clickChallengingDomButton();
         const currentUrl = await driver.getCurrentUrl();
         assert.strictEqual(currentUrl, 'https://the-internet.herokuapp.com/challenging_dom');

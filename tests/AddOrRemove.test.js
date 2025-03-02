@@ -10,6 +10,7 @@ let addOrRemove_Page;
 before(async function() {
     this.timeout(100000);
     const options = new chrome.Options();
+    options.addArguments('--start-maximized');
     driver = await new Builder()
         .forBrowser('chrome')
         .setChromeOptions(options)
@@ -26,7 +27,7 @@ after(async function() {
 });
 
 describe('Add/Remove Elements', function() {
-    it('ARE001 - Verify click button Add Element', async () => {
+    it('ARE001 - Verify click button Add Element', async function () {
         await addOrRemove_Page.clickAddRemoveElementsButton();
         await addOrRemove_Page.clickAddElementButton();
         await addOrRemove_Page.clickAddElementButton();
@@ -48,7 +49,7 @@ describe('Add/Remove Elements', function() {
         addOrRemove_Page.clickDeleteButton5();
         await driver.sleep(1000);
     });
-    it('ARE003 - Verify click button Add Element', async () => {
+    it('ARE003 - Verify click button Add Element', async function () {
         
     });
 
